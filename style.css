@@ -1,0 +1,11 @@
+#board {
+    width: 1000px;
+    height: 500px;
+    background-color: #0d0909; 
+    cursor: crosshair;  
+}
+
+.container {
+   text-align: center; 
+   margin-top: 5%;
+}
