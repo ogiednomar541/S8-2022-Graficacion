@@ -11,6 +11,22 @@
     
     <div class="container">
         <label for="board">Toque dos puntos sobre el recuadro para dibujar una linea.</label>
+        <br>
+        <fieldset>
+            <legend>Seleccione un método:</legend>
+            <div>
+            <label>
+                <input id="md" type="radio" name="m" value="1" checked> Método directo
+            </label>
+            <label>
+                <input id="dda" type="radio" name="m" value="2"> Método DDA
+            </label>
+            <label>
+                <input id = "mb" type="radio" name="m" value="3"> Método Bresenham
+            </label>
+        </div>  
+        </fieldset>
+        
         <br><br>
         <canvas id="board"></canvas>
     </div>
@@ -18,8 +34,9 @@
 </body>
 <link rel="stylesheet" href="style.css" type="text/css">
 <script src="functionality.js"></script>
-<script src="test.js"></script>
-
+<script src="DirectMethod.js"></script>
+<script src="DDAMethod.js"></script>
+<script src="BresenhamMethod.js"></script>
 </html>
 
 

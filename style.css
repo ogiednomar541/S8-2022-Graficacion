@@ -7,5 +7,10 @@
 
 .container {
    text-align: center; 
-   margin-top: 5%;
+   margin-top: 1%;
 }   
+
+fieldset{
+    display: inline;
+    width: 800px;
+}
