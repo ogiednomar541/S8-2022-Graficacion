@@ -28,8 +28,7 @@ function startTest(){
     window.alert("Testing");
     var invested = false
     if ( document.getElementById('md').checked == true){
-        console.time('DirectMethod_T');
-
+        var start = new Date ();
         for (var i = 2; i < 1000; i+= 2){
             if (!invested){
                 //Vertical NS 
@@ -46,9 +45,9 @@ function startTest(){
                 DirectMethod(i, 1000,0,1000-i);
                 invested = true;
             }else{
-                //vertical invertida
+                //vertical SN
                 DirectMethod(i, 1000, i, 0); 
-                //Horizontal
+                //Horizontal DI
                 DirectMethod(1000, i, 0, i); 
                 //d1
                 DirectMethod(i, 0, 0, i);                 
@@ -62,11 +61,12 @@ function startTest(){
             }
         
         }
-        console.timeEnd('DirectMethod_T');
+        var end   = new Date ();
+        console.log ("DirectMethod_T: " + (end - start) + " ms");
         alert("Test completado");
         
     }else if ( document.getElementById('dda').checked == true){
-        console.time('DDAMethod_T');
+        var start = new Date ();
 
         for (var i = 2; i < 1000; i+= 2){
             if (!invested){
@@ -100,11 +100,11 @@ function startTest(){
             }
         
         }
-        console.timeEnd('DDAMethod_T');
+        var end   = new Date ();
+        console.log ("DDAMethod_T: " + (end - start) + " ms");
         alert("Test completado");
     }else{
-        console.time('BresenhamMethod_T');
-
+        var start = new Date ();
         for (var i = 2; i < 1000; i+= 2){
             if (!invested){
                 //Vertical NS 
@@ -137,7 +137,8 @@ function startTest(){
             }
         
         }
-        console.timeEnd('BresenhamMethod_T');
+        var end   = new Date ();
+        console.log ("BresenhamMethod_T: " + (end - start) + " ms");
         alert("Test completado");
     }
     
