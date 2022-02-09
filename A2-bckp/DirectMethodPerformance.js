@@ -2,12 +2,11 @@
 // MÉTODO DIRECTO (BÁSICO)  
 //========================================
 
-function DirectMethod(){
+function DirectMethod(x1, x2, y1, y2){
     let dx = 0;
     let dy = 0;
     let m = 0.0;
     let b = 0.0;
-    let x1 = input[0][0], x2 = input[1][0], y1 = input[0][1], y2 = input[1][1];
 
     //Calcular desplazamientos(diferencias) dx = |x1-x2|    dy = |y1-y2|
     dx = Math.abs(x1 - x2);
@@ -20,7 +19,7 @@ function DirectMethod(){
     }
     
 
-    console.log("Data: dx= "+dx+" dy= "+dy+" m= "+m+" b= "+b)
+    //console.log("Data: dx= "+dx+" dy= "+dy+" m= "+m+" b= "+b)
     if (dx == 0 && dy == 0){
         alert("LAS COORDENADAS DE LOS PUNTOS SELECCIONADOS COINCIDEN: (" + x1+", "+y1+")")
     }else if (dx == dy){
@@ -41,7 +40,7 @@ function DirectMethod(){
             //localizar el nuevo punto en el tablero
             drawPoint(x,y);
             //Registrar en consola
-            console.log(x + "\t" + y);
+            //console.log(x + "\t" + y);
         }
 
     }else if (dx == 0){
@@ -61,7 +60,7 @@ function DirectMethod(){
             //localizar el nuevo punto en el tablero
             drawPoint(x1,y);
             //Registrar en consola
-            console.log(x1 + "\t" + y);
+            //console.log(x1 + "\t" + y);
         }
 
     }else if (dy == 0){
@@ -81,7 +80,7 @@ function DirectMethod(){
             //localizar el nuevo punto en el tablero
             drawPoint(x,y1);
             //Registrar en consola
-            console.log(x + "\t" + y1);
+            //console.log(x + "\t" + y1);
         }
 
     }else if (dx > dy){
@@ -102,7 +101,7 @@ function DirectMethod(){
             //localizar el nuevo punto en el tablero
             drawPoint(x,y);
             //Registrar en consola
-            console.log(x + "\t" + y);
+            //console.log(x + "\t" + y);
         }
 
     }else if (dx < dy){
@@ -123,7 +122,7 @@ function DirectMethod(){
             //localizar el nuevo punto en el tablero
             drawPoint(x,y);
             //Registrar en consola
-            console.log(x + "\t" + y);
+            //console.log(x + "\t" + y);
         }
 
     }

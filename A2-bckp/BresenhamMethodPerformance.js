@@ -1,5 +1,4 @@
-function BresenhamMethod(){
-    let x1 = input[0][0], x2 = input[1][0], y1 = input[0][1], y2 = input[1][1];
+function BresenhamMethod(x1, x2, y1, y2){
     var x = x1, y = y1, dx, dy, last, twoDy, twoDyLessTwoDx, xSlp = 1, ySlp = 1;   
     
     //Calcular desplazamientos

@@ -7,56 +7,8 @@ let board = document.getElementById('board');
 let input = new Array(2);
 input[0] = new Array(2);
 input[1] = new Array(2);
-//Bandera - se obtienen dos puntos para dibujar una línea
+//Bandera - se obtienen dos puntos para dibuiar una línea
 let isPair = false;
-
-//========================================
-// Obtener puntos
-//========================================
-window.onload = function(){
-    click();
-};
-
-function click() {
-    board.addEventListener('mousedown', function(e){
-        getPoint(e);
-    }, false);
-}
-
-function getPoint(event){
-
-    const rect = board.getBoundingClientRect();
-    const elementRelativeX = event.clientX - rect.left;
-    const elementRelativeY = event.clientY - rect.top;
-    const x = Math.round(elementRelativeX * board.width / rect.width);
-    const y = Math.round(elementRelativeY * board.height / rect.height);
-    console.log("x:" + x + " y:" + y);    
-
-    if (isPair) {
-        input[1][0] = x;
-        input[1][1] = y;
-        console.log("Line: p0("+input[0][0]+","+input[0][1]+")  p1("+input[1][0]+","+input[1][1]+");")
-        isPair = false;
-
-        
-        if ( document.getElementById('md').checked == true){
-            DirectMethod();
-        }else if ( document.getElementById('dda').checked == true){
-            DDAMethod();
-        }else{
-            BresenhamMethod();
-        }
-        
-
-    }else{
-        input[0][0] = x;
-        input[0][1] = y;
-        isPair = true;
-    }
-
-    drawPoint(x,y);     
-    
-}
 
 function drawPoint(x,y){	
     let toBoard = document.getElementById("board").getContext("2d");
@@ -74,5 +26,120 @@ function clear(){
 
 function startTest(){
     window.alert("Testing");
+    var invested = false
+    if ( document.getElementById('md').checked == true){
+        console.time('DirectMethod_T');
+
+        for (var i = 2; i < 1000; i+= 2){
+            if (!invested){
+                //Vertical NS 
+                DirectMethod(i,0,i,1000);
+                //Horizontal ID
+                DirectMethod(0,i,1000,i);
+                //d1
+                DirectMethod(0,i,i,0);
+                //d2
+                DirectMethod(1000-i,0,1000,i);
+                //d3
+                DirectMethod(1000,1000-i,1000-i,1000);
+                //d4
+                DirectMethod(i, 1000,0,1000-i);
+                invested = true;
+            }else{
+                //vertical invertida
+                DirectMethod(i, 1000, i, 0); 
+                //Horizontal
+                DirectMethod(1000, i, 0, i); 
+                //d1
+                DirectMethod(i, 0, 0, i);                 
+                //d2         
+                DirectMethod(1000,i,1000-i,0);             
+                //d3 
+                DirectMethod(1000-i, 1000, 1000, 1000-i);   
+                //d4                     
+                DirectMethod(0,1000-i,i,1000);         
+                invested = false;
+            }
+        
+        }
+        console.timeEnd('DirectMethod_T');
+        alert("Test completado");
+        
+    }else if ( document.getElementById('dda').checked == true){
+        console.time('DDAMethod_T');
+
+        for (var i = 2; i < 1000; i+= 2){
+            if (!invested){
+                //Vertical NS 
+                DDAMethod(i,0,i,1000);
+                //Horizontal ID
+                DDAMethod(0,i,1000,i);
+                //d1
+                DDAMethod(0,i,i,0);
+                //d2
+                DDAMethod(1000-i,0,1000,i);
+                //d3
+                DDAMethod(1000,1000-i,1000-i,1000);
+                //d4
+                DDAMethod(i, 1000,0,1000-i);
+                invested = true;
+            }else{
+                //vertical invertida
+                DDAMethod(i, 1000, i, 0); 
+                //Horizontal
+                DDAMethod(1000, i, 0, i); 
+                //d1
+                DDAMethod(i, 0, 0, i);                 
+                //d2         
+                DDAMethod(1000,i,1000-i,0);             
+                //d3 
+                DDAMethod(1000-i, 1000, 1000, 1000-i);   
+                //d4                     
+                DDAMethod(0,1000-i,i,1000);         
+                invested = false;
+            }
+        
+        }
+        console.timeEnd('DDAMethod_T');
+        alert("Test completado");
+    }else{
+        console.time('BresenhamMethod_T');
+
+        for (var i = 2; i < 1000; i+= 2){
+            if (!invested){
+                //Vertical NS 
+                BresenhamMethod(i,0,i,1000);
+                //Horizontal ID
+                BresenhamMethod(0,i,1000,i);
+                //d1
+                BresenhamMethod(0,i,i,0);
+                //d2
+                BresenhamMethod(1000-i,0,1000,i);
+                //d3
+                BresenhamMethod(1000,1000-i,1000-i,1000);
+                //d4
+                BresenhamMethod(i, 1000,0,1000-i);
+                invested = true;
+            }else{
+                //vertical invertida
+                BresenhamMethod(i, 1000, i, 0); 
+                //Horizontal
+                BresenhamMethod(1000, i, 0, i); 
+                //d1
+                BresenhamMethod(i, 0, 0, i);                 
+                //d2         
+                BresenhamMethod(1000,i,1000-i,0);             
+                //d3 
+                BresenhamMethod(1000-i, 1000, 1000, 1000-i);   
+                //d4                     
+                BresenhamMethod(0,1000-i,i,1000);         
+                invested = false;
+            }
+        
+        }
+        console.timeEnd('BresenhamMethod_T');
+        alert("Test completado");
+    }
+    
 }
 

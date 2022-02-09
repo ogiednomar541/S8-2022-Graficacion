@@ -3,6 +3,9 @@
     height: 1000px;
     background-color: #0d0909; 
     cursor: crosshair;  
+    max-height: 500px;
+    max-width:  500px;
+    overflow: scroll;
 }
 
 .container {
