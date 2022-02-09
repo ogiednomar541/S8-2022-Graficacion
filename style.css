@@ -14,3 +14,8 @@ fieldset{
     display: inline;
     width: 800px;
 }
+
+button{
+    display:inline-flex;
+    margin: 10px;
+}

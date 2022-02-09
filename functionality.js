@@ -10,7 +10,6 @@ input[1] = new Array(2);
 //Bandera - se obtienen dos puntos para dibujar una línea
 let isPair = false;
 
-
 //========================================
 // Obtener puntos
 //========================================
@@ -66,4 +65,14 @@ function drawPoint(x,y){
 }
 
 
+function clear(){
+    let toBoard = document.getElementById("board").getContext("2d");
+    toBoard.clearRect(0, 0, board.width, board.height);
+    isPair = false
+    
+}
+
+function startTest(){
+    window.alert("Testing");
+}
 
