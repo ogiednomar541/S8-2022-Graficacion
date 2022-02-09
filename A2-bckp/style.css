@@ -1,0 +1,21 @@
+#board {
+    width: 1000px;
+    height: 1000px;
+    background-color: #0d0909; 
+    cursor: crosshair;  
+}
+
+.container {
+   text-align: center; 
+   margin-top: 1%;
+}   
+
+fieldset{
+    display: inline;
+    width: 800px;
+}
+
+button{
+    display:inline-flex;
+    margin: 10px;
+}
